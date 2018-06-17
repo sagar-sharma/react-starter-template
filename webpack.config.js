@@ -22,10 +22,15 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         exclude: /node_modules/,
         use: {
-          loader: "file-loader"
+          loader: "file-loader",
+          options: {
+            file: "[path][name].[ext]",
+            publicPath: "./assets/",
+            outputPath: "./assets/"
+          }
         }
       }
     ]
